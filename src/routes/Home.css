@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   background-position: center;
-  background-image: url('./image/background/backgroundt1.svg');
+  background-image: url('../image/background/backgroundt1.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
