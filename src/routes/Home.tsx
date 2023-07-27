@@ -1,5 +1,5 @@
-import { Button, TextField, Container, Grid, styled, Box } from '@mui/material'
-import logo from '../image/background/rickandmortyt1.svg'
+import { Button, TextField, Container, Grid, styled } from '@mui/material'
+import { ReactComponent as Logo } from '../image/background/rickandmortyt1.svg'
 import background from '../image/background/backgroundt1.svg'
 import './Home.css'
 
@@ -32,28 +32,39 @@ const StyledTextField = styled(TextField)(() =>({
 const StyledContainer = styled(Container)(() =>({
   width: "100vw",
   height: "100vh",
-  //backgroundPosition: "center",
-  backgroundImage: `url(${background})`,
-  backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  position: "fixed",
   left: "0",
   top: "0",
   padding: 0,
+  position: "fixed",
+  backgroundImage: `url(${background})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center", 
 }))
+
+const SearchSectionGrid = styled(Grid)(() =>({
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+}))
+
 
 function Home() {
   return (
-    <StyledContainer>
-      <Grid container rowSpacing={6} columnSpacing={6}>
+    <StyledContainer disableGutters maxWidth={false}>
+      <Grid container justifyContent="center" alignItems="center" rowSpacing={6}>
+        <Grid item alignItems="center" display="flex" justifyContent="center" xs={12}>
+          <Logo alt="logo"/>
+        </Grid>
         <Grid item xs={12}>
-          <img src={logo} alt="logo"/>
-        </Grid>
-        <Grid item xs={8}>
-          <StyledTextField label="Search characters" variant="outlined"/>
-        </Grid>
-        <Grid item xs={0}>
-          <StyledButton variant='outlined'>Search</StyledButton>
+            <SearchSectionGrid container columnSpacing={1}>
+              <Grid item md={6} alignItems="center" display="flex" justifyContent="center">
+                <StyledTextField label="Search characters" variant="outlined"/>
+              </Grid>
+              <Grid item md={6} alignItems="center" display="flex" justifyContent="center">
+                <StyledButton variant='outlined'>Search</StyledButton>
+              </Grid>
+          </SearchSectionGrid>
         </Grid>
       </Grid>
     </StyledContainer>
